@@ -1,0 +1,48 @@
+package aquariummanager;
+
+import java.util.ArrayList;
+
+
+public class Aquarium {
+    private ArrayList<Fish> fishList;
+
+    public Aquarium() {
+        fishList = new ArrayList<>();
+    }
+
+    public void addFish(Fish fish) {
+        fishList.add(fish);
+        System.out.println(fish.getName() + " added to the aquarium.");
+    }
+
+    public void feedAllFish() {
+        for (Fish fish : fishList) {
+            fish.feed();
+        }
+    }
+
+    public void showAllFish() {
+        if (fishList.isEmpty()) {
+            System.out.println("No fish in the aquarium yet.");
+            return;
+        }
+        for (int i = 0; i < fishList.size(); i++) {
+            System.out.println((i + 1) + ". " + fishList.get(i));
+        }
+    }
+
+    public void cleanAquarium() {
+        System.out.println("You scrubbed the tank. The aquarium is sparkling clean now!");
+    }
+
+    public void showAquariumStats() {
+        System.out.println("Total fish: " + fishList.size());
+        for (Fish fish : fishList) {
+            fish.showStats();
+        }
+    }
+
+    public ArrayList<Fish> getFishList() {
+        return fishList;
+    }
+}
